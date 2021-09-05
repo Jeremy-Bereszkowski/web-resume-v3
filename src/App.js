@@ -7,24 +7,47 @@ import {
 } from "react-router-dom";
 
 import {
-    unstable_createMuiStrictModeTheme as createMuiTheme,
+    createTheme,
     CssBaseline,
     responsiveFontSizes,
     ThemeProvider
-} from "@material-ui/core";
+} from "@mui/material";
 
 import LandingPage from "./pages/LandingPage"
 import NotFoundPage from "./pages/NotFoundPage";
 
 import { URLS } from "./assets/strings/urls";
 
+const github = "/github.svg"
+const dribble = "/dribble.svg"
+const linkedIn = "/linkedin.svg"
+
+
+
 export default function App() {
-    const theme = React.useMemo( () => responsiveFontSizes(createMuiTheme({
-        palette: {},
+    const theme = React.useMemo( () => responsiveFontSizes(createTheme({
+        palette: {
+            primary: {
+                main: "#E76F51",
+            },
+            secondary: {
+                main: "#2A9D8F",
+            },
+            background: {
+                'default': "#E9C46A",
+            }
+        },
+        typography: {
+            play: {
+                fontFamily: 'Play, sans-serif !important',
+            },
+            overpass: {
+                fontFamily: 'Overpass, serif !important',
+            },
+        },
         drawer: {
             width: 240,
         },
-        spacing: factor => `${0.5 * factor}rem`,
     })), []);
 
     return (

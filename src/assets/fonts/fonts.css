@@ -1,0 +1,17 @@
+@font-face {
+    font-family: 'Bumble Bee';
+    src: url('bumblebee-webfont.eot');
+    src: local('☺'),
+    url('bumblebee-webfont.woff') format('woff'),
+    url('bumblebee-webfont.ttf') format('truetype'),
+    url('bumblebee-webfont.svg#webfontg8dbVmxj') format('svg');
+}
+
+@font-face {
+    font-family: 'GestaReFogular';
+    src: url('gestareg-webfont.eot');
+    src: local('☺'),
+    url('gestareg-webfont.woff') format('woff'),
+    url('gestareg-webfont.ttf') format('truetype'),
+    url('gestareg-webfont.svg#webfontg8dbVmxj') format('svg');
+}
