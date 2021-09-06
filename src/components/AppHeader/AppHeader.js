@@ -5,6 +5,7 @@ import GithubIcon from "../SvgIcons/GithubIcon";
 import LinkedInIcon from "../SvgIcons/LinkedInIcon";
 import CustomButton from "../Buttons/CustomButton";
 import {createStyles, makeStyles} from "@mui/styles";
+import AppContainer from "../Containers/AppContainer";
 
 const useStyles = makeStyles((theme) => createStyles({
     root: {
@@ -47,9 +48,10 @@ function AppHeader() {
         <AppBar
             color={"transparent"}
             elevation={0}
+            position={"relative"}
             className={classes.root}
         >
-            <Container maxWidth={"lg"}>
+            <AppContainer>
                 <Toolbar className={classes.toolbar} disableGutters>
                     {data.map(ele => (
                         <div className={classes.buttonWrapper} key={ele.label}>
@@ -63,7 +65,7 @@ function AppHeader() {
                         </div>
                     ))}
                 </Toolbar>
-            </Container>
+            </AppContainer>
         </AppBar>
     );
 }

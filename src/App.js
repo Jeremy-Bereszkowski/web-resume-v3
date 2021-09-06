@@ -44,6 +44,9 @@ export default function App() {
             overpass: {
                 fontFamily: 'Overpass, serif !important',
             },
+            h1: {
+                fontSize: "88px"
+            },
             h2: {
                 fontSize: "60px"
             },
