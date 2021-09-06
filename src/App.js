@@ -44,6 +44,15 @@ export default function App() {
             overpass: {
                 fontFamily: 'Overpass, serif !important',
             },
+            h2: {
+                fontSize: "60px"
+            },
+            h3: {
+                fontSize: "46px"
+            },
+            h4: {
+                fontSize: "36px"
+            }
         },
         drawer: {
             width: 240,

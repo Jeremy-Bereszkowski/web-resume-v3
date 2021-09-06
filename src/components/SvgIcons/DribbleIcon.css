@@ -1,0 +1,19 @@
+.circle, .logo {
+    transition: 300ms all;
+    transform-origin: 50% 50%;
+}
+
+.circle {
+    transition: 300ms all;
+    transform-origin: 50% 50%;
+    fill: #2A9D8F;
+}
+
+.logo {
+    fill: #ffffff;
+}
+
+.circle :hover {
+    fill: #ffffff;
+        /*fill: transparent;*/
+}

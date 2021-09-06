@@ -7,6 +7,11 @@ const useStyles = makeStyles((theme) => createStyles({
         borderRadius: "25px!important",
         backgroundColor: theme.palette.secondary.main,
         height: "40px",
+        boxShadow: 'none!important',
+        filter: "drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25))",
+    },
+    type: {
+        ...theme.typography.overpass,
     },
 }));
 
@@ -18,8 +23,10 @@ export default function CustomButton({children}) {
             variant={"contained"}
             className={classes.root}
         >
-            <Typography>
-                {children}
+            <Typography variant={"button"} className={classes.type}>
+                <strong>
+                    {children}
+                </strong>
             </Typography>
         </Button>
     );

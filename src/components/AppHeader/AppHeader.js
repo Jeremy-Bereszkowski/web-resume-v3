@@ -1,6 +1,6 @@
 import React from 'react';
 import {AppBar, Container, IconButton, Toolbar, Tooltip} from "@mui/material";
-import DribbleIcon from "../SvgIcons/DibbleIcon";
+import DribbleIcon from "../SvgIcons/DribbleIcon";
 import GithubIcon from "../SvgIcons/GithubIcon";
 import LinkedInIcon from "../SvgIcons/LinkedInIcon";
 import CustomButton from "../Buttons/CustomButton";
@@ -12,10 +12,6 @@ const useStyles = makeStyles((theme) => createStyles({
     },
     toolbar: {
         justifyContent: "flex-end"
-    },
-    headerButton: {
-        borderRadius: "25px!important",
-        backgroundColor: theme.palette.secondary.main,
     },
     buttonWrapper: {
         marginLeft: theme.spacing(1),
