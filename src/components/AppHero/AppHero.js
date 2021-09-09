@@ -44,25 +44,40 @@ const useStyles = makeStyles((theme) => createStyles({
     text4: {
         ...theme.typography.play,
         textShadow: "0px 4px 4px rgba(0, 0, 0, 0.35)",
-        marginBottom: `${theme.spacing(10)}!important`,
+        [theme.breakpoints.down("sm")]: {
+            marginBottom: `${theme.spacing(5)}!important`,
+        },
+        [theme.breakpoints.up("md")]: {
+            marginBottom: `${theme.spacing(10)}!important`,
+        },
     },
     text5: {
         ...theme.typography.overpass,
+        [theme.breakpoints.down("sm")]: {
+            display: "inline-block"
+        },
     },
     altFont: {
         color: theme.palette.primary.main,
         display: "inline",
     },
     downIcon: {
-        width: "100%",
         display: "flex",
         justifyContent: "center",
-        marginTop: theme.spacing(3)
+        [theme.breakpoints.down("sm")]: {
+            width: "40%",
+            margin: theme.spacing(3, "auto", 0, "auto"),
+        },
+        [theme.breakpoints.up("md")]: {
+            width: "100%",
+            marginTop: theme.spacing(3),
+        },
     }
 }));
 
 export default function AppHero() {
     const classes = useStyles()
+    const isSmDown = useMediaQuery(theme => theme.breakpoints.down('sm'));
     const isMdDown = useMediaQuery(theme => theme.breakpoints.down('md'));
 
     return (
@@ -135,24 +150,28 @@ export default function AppHero() {
                             UI/UX Enthusiast.
                         </strong>
                     </Typography>
-                    <Typography
-                        variant={"h3"}
-                        component={"h3"}
-                        color={"white"}
-                        className={classes.text5}
-                    >
-                        Building your ideas,
-                    </Typography>
-                    <Typography
-                        variant={"h3"}
-                        component={"h3"}
-                        color={"primary"}
-                        className={clsx(classes.text5, classes.altFont)}
-                    >
-                        <strong>
-                            everywhere.
-                        </strong>
-                    </Typography>
+                    <div>
+                        <Typography
+                            variant={isSmDown ? "h5" : "h3"}
+                            component={"h3"}
+                            color={"white"}
+                            className={classes.text5}
+                        >
+                            Building your ideas,
+                        </Typography>
+                        {' '}
+                        <Typography
+                            variant={isSmDown ? "h5" : "h3"}
+                            component={"h3"}
+                            color={"primary"}
+                            className={clsx(classes.text5, classes.altFont)}
+                        >
+                            <strong>
+                                everywhere.
+                            </strong>
+                        </Typography>
+                    </div>
+
                     <div className={classes.downIcon}>
                         <DownCaretIcon/>
                     </div>

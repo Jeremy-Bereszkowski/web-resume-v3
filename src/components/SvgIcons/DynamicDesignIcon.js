@@ -9,11 +9,9 @@ const useStyles = makeStyles((theme) => createStyles({
         maxWidth: "400px"
     },
     large: {
-        /*transform: "scale(.95)",
-        transformOrigin: "100% 50%",*/
-        width: "40vw",
+        width: "95%",
         height: "auto",
-        maxWidth: "700px"
+        maxWidth: "680px"
     },
 }));
 
