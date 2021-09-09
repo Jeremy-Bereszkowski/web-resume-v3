@@ -29,8 +29,13 @@ const useStyles = makeStyles((theme) => createStyles({
         display: "inline"
     },
     text2: {
-        marginTop: `${theme.spacing(6)}!important`,
         ...theme.typography.overpass,
+        [theme.breakpoints.down("sm")]: {
+            // marginTop: `${theme.spacing(2)}!important`,
+        },
+        [theme.breakpoints.up("md")]: {
+            marginTop: `${theme.spacing(6)}!important`,
+        },
     },
     text3: {
         ...theme.typography.play,
@@ -89,7 +94,7 @@ export default function AppHero() {
                     </div>
                     {isMdDown && (
                         <div className={classes.smallIcon}>
-                            <DynamicDesignIcon/>
+                            <DynamicDesignIcon large={false}/>
                         </div>
                     )}
                     <Typography
@@ -155,7 +160,7 @@ export default function AppHero() {
                 {!isMdDown && (
                     <Grid item md={6}>
                         <div className={classes.spacer}>
-                            <DynamicDesignIcon/>
+                            <DynamicDesignIcon large={true}/>
                         </div>
                     </Grid>
                 )}

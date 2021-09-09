@@ -1,5 +1,5 @@
 import React from 'react';
-import {Container} from "@mui/material";
+import {Container, useMediaQuery, useTheme} from "@mui/material";
 import {createStyles, makeStyles} from "@mui/styles";
 
 const useStyles = makeStyles((theme) => createStyles({
@@ -16,9 +16,14 @@ const useStyles = makeStyles((theme) => createStyles({
 
 export default function AppContainer({children}) {
     const classes = useStyles();
+    const theme = useTheme();
+    const isXlUp = useMediaQuery(theme.breakpoints.up("xl"));
     return (
         <div className={classes.root}>
-            <Container maxWidth={"lg"} disableGutters>
+            <Container
+                maxWidth={isXlUp ? "xl" : "lg"}
+                disableGutters
+            >
                 {children}
             </Container>
         </div>

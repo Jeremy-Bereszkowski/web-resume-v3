@@ -1,8 +1,14 @@
 import React from 'react';
 import {createStyles, makeStyles} from "@mui/styles";
+import clsx from "clsx";
 
 const useStyles = makeStyles((theme) => createStyles({
-    image: {
+    small: {
+        width: "66vw",
+        height: "auto",
+        maxWidth: "400px"
+    },
+    large: {
         /*transform: "scale(.95)",
         transformOrigin: "100% 50%",*/
         width: "40vw",
@@ -12,10 +18,14 @@ const useStyles = makeStyles((theme) => createStyles({
 }));
 
 
-function DynamicDesignIcon() {
+function DynamicDesignIcon({large}) {
     const classes = useStyles();
+    const iconClasses = clsx({
+        [classes.small]: !large,
+        [classes.large]: large,
+    })
     return (
-        <svg className={classes.image} width="560" height="471" viewBox="0 0 560 471" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <svg className={iconClasses} width="560" height="471" viewBox="0 0 560 471" fill="none" xmlns="http://www.w3.org/2000/svg">
             <g id="undraw_Real_time_sync_re_nky7 1">
                 <g id="Group 4">
                     <path id="Vector" d="M453.728 43.6813C457.458 28.4539 453.911 10.6952 441.861 0.679138C441.625 17.7273 435.373 34.1426 424.21 47.0206C419.887 51.9715 414.563 57.0276 414.354 63.5997C414.223 67.689 416.218 71.6167 418.966 74.6454C421.714 77.674 425.181 79.9405 428.607 82.1725L429.11 83.061C440.138 71.9268 449.998 58.9087 453.728 43.6813Z" fill="#264653"/>

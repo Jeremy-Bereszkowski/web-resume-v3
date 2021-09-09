@@ -34,6 +34,7 @@ export default function App() {
                 main: "#2A9D8F",
             },
             background: {
+                // 'default': "#264653",
                 'default': "#E9C46A",
             }
         },
