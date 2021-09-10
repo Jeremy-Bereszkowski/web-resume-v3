@@ -12,17 +12,12 @@ import ContactMeButton from "../Buttons/ContactMeButton";
 
 const useStyles = makeStyles((theme) => createStyles({
     root: {
-        height: theme.spacing(5),
-        /*[theme.breakpoints.down("sm")]: {
-            marginTop: theme.spacing(3),
+        [theme.breakpoints.down("md")]: {
+            marginTop: theme.spacing(2),
         },
-        [theme.breakpoints.up("sm")]: {
-            // marginTop: theme.spacing(2),
-            marginTop: theme.spacing(15),
-        },*/
-    },
-    slider: {
-        marginTop: theme.spacing(3),
+        [theme.breakpoints.up("md")]: {
+            marginTop: theme.spacing(5),
+        }
     },
     smallToolbar: {
         justifyContent: "space-between",
@@ -34,21 +29,26 @@ const useStyles = makeStyles((theme) => createStyles({
         [theme.breakpoints.up("sm")]: {
             marginLeft: theme.spacing(1),
         }
+    },
+    menuButton: {
+        color: theme.palette.common.white,
+        transform: "scale(1.25)",
     }
 }));
 
 function AppHeader() {
     const classes = useStyles()
     const theme = useTheme()
-    const isMdDown = useMediaQuery(theme.breakpoints.down("sm"))
+    const isSmDown = useMediaQuery(theme.breakpoints.down("sm"))
+    const isMdDown = useMediaQuery(theme.breakpoints.down("md"))
     const toolbarClasses = clsx({
-        [classes.smallToolbar]: isMdDown,
-        [classes.largeToolbar]: !isMdDown,
+        [classes.smallToolbar]: isSmDown,
+        [classes.largeToolbar]: !isSmDown,
     })
 
     const smallHeaderData = [
         {label: "Contact Me", render: <ContactMeButton/>},
-        {label: "Menu", render: <MenuOpenIcon/>},
+        {label: "Menu", render: <MenuOpenIcon className={classes.menuButton}/>},
     ]
     const largeHeaderData = [
         {label: "Dribble", render: <DribbleIcon/>},
@@ -61,19 +61,17 @@ function AppHeader() {
         <AppBar
             color={"transparent"}
             elevation={0}
-            position={"relative"}
+            position={"absolute"}
+            className={classes.root}
         >
-                <Collapse in={!isMdDown} className={classes.slider}>
-                    <div className={classes.root}/>
-                </Collapse>
             <AppContainer>
                 <Toolbar className={toolbarClasses} disableGutters>
-                    {isMdDown ? (
+                    {isSmDown ? (
                         smallHeaderData.map(ele => (
                             <div className={classes.buttonWrapper} key={ele.label}>
                                 {ele.label === "Contact Me" ? ele.render : (
                                     <Tooltip title={ele.label}>
-                                        <IconButton>
+                                        <IconButton size={"large"}>
                                             {ele.render}
                                         </IconButton>
                                     </Tooltip>

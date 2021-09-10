@@ -26,6 +26,7 @@ const linkedIn = "/linkedin.svg"
 
 export default function App() {
     const theme = React.useMemo( () => responsiveFontSizes(createTheme({
+
         palette: {
             primary: {
                 main: "#E76F51",
