@@ -10,7 +10,7 @@ import {
     createTheme,
     CssBaseline,
     responsiveFontSizes,
-    ThemeProvider
+    ThemeProvider, useMediaQuery
 } from "@mui/material";
 
 import LandingPage from "./pages/LandingPage"
@@ -25,8 +25,8 @@ const linkedIn = "/linkedin.svg"
 
 
 export default function App() {
+    const prefersDarkMode = useMediaQuery('(prefers-color-scheme: dark)');
     const theme = React.useMemo( () => responsiveFontSizes(createTheme({
-
         palette: {
             primary: {
                 main: "#E76F51",
@@ -36,7 +36,7 @@ export default function App() {
             },
             background: {
                 // 'default': "#264653",
-                'default': "#E9C46A",
+                'default': prefersDarkMode ? "#E9C46A" : "#264653",
             }
         },
         typography: {
@@ -62,7 +62,7 @@ export default function App() {
         drawer: {
             width: 240,
         },
-    })), []);
+    })), [prefersDarkMode]);
 
     return (
         <ThemeProvider theme={theme}>
