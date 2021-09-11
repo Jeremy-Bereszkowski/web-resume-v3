@@ -9,7 +9,7 @@ const useStyles = makeStyles((theme) => createStyles({
         width: "65%",
         height: "auto",
         maxWidth: "440px",
-        marginRight: "2rem",
+        // marginRight: "2rem",
     },
     medium: {
         width: "40%",
