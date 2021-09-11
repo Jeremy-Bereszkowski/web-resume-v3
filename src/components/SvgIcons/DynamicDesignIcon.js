@@ -13,7 +13,7 @@ const useStyles = makeStyles((theme) => createStyles({
         height: "35%",
         width: "auto",
         [theme.breakpoints.only("xs")]: {
-            maxHeight: "250px",
+            maxHeight: "225px",
         },
         [theme.breakpoints.up("sm")]: {
             maxHeight: "350px",

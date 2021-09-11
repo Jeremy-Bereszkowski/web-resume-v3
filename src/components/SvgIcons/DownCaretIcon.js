@@ -5,10 +5,10 @@ const useStyles = makeStyles((theme) => createStyles({
     root: {
         filter: "drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.5))",
         [theme.breakpoints.down("sm")]: {
-            transform: "scale(0.6)",
+            transform: "scale(0.7)",
         },
         [theme.breakpoints.only("sm")]: {
-            transform: "scale(0.8)",
+            transform: "scale(0.85)",
         }
     },
 }));
