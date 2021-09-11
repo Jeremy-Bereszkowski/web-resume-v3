@@ -1,14 +1,15 @@
 import React from 'react';
-import clsx from "clsx";
+
 import {Grid, Typography, useMediaQuery} from "@mui/material";
 import {createStyles, makeStyles} from "@mui/styles";
+
 import DownCaretIcon from "../SvgIcons/DownCaretIcon";
 import DynamicDesignIcon from "../SvgIcons/DynamicDesignIcon";
 import AppContainer from "../Containers/AppContainer";
 
 const useStyles = makeStyles((theme) => createStyles({
     container: {
-        width: "100vw",
+        width: "100%",
         height: "100vh",
     },
     smallIcon: {
@@ -27,7 +28,6 @@ const useStyles = makeStyles((theme) => createStyles({
     text1: {
         ...theme.typography.overpass,
         display: "inline",
-        overflow: "scroll",
     },
     text2: {
         ...theme.typography.overpass,
@@ -37,17 +37,18 @@ const useStyles = makeStyles((theme) => createStyles({
         [theme.breakpoints.up("xl")]: {
             marginTop: `${theme.spacing(10)}!important`,
         },
-        overflow: "scroll",
     },
     text3: {
         ...theme.typography.play,
         textShadow: "0px 4px 4px rgba(0, 0, 0, 0.35)",
-        overflow: "scroll",
         height: "100%",
         [theme.breakpoints.down("md")]: {
             marginBottom: `${theme.spacing(8)}!important`,
         },
-        [theme.breakpoints.up("md")]: {
+        [theme.breakpoints.only("md")]: {
+            marginBottom: `${theme.spacing(0)}!important`,
+        },
+        [theme.breakpoints.up("lg")]: {
             marginBottom: `${theme.spacing(10)}!important`,
         },
     },
@@ -58,29 +59,32 @@ const useStyles = makeStyles((theme) => createStyles({
     text5: {
         ...theme.typography.overpass,
         width: "100%",
-        overflow: "scroll",
-        [theme.breakpoints.down("sm")]: {
-            display: "inline-block"
-        },
     },
     altFont: {
         color: theme.palette.primary.main,
-        display: "inline-block",
+        [theme.breakpoints.up("md")]: {
+            display: "inline-block"
+        },
     },
     downIcon: {
         display: "flex",
         justifyContent: "center",
         [theme.breakpoints.down("xs")]: {
             width: "35%",
-            margin: theme.spacing(1.5, "auto", 0, "auto"),
+            margin: theme.spacing(1.5, "auto", 3, "auto"),
         },
         [theme.breakpoints.up("xs")]: {
             width: "100%",
-            marginTop: theme.spacing(3),
+            margin: theme.spacing(3, "auto"),
         },
     },
     highlightText: {
         color: theme.palette.primary.main,
+    },
+    inlineText: {
+        [theme.breakpoints.down("md")]: {
+            display: "inline-block",
+        },
     }
 }));
 
@@ -96,7 +100,11 @@ export default function AppHero() {
 
     return (
         <AppContainer>
-            <Grid container className={classes.container}>
+            <Grid
+                container
+                component={"main"}
+                className={classes.container}
+            >
                 <Grid item sm={12} md={12} lg={6} sx={{width: "100%"}}>
                     <div className={classes.spacer1}>
                         <Typography
@@ -123,36 +131,39 @@ export default function AppHero() {
                             <DynamicDesignIcon size={"small"}/>
                         </div>
                     )}
-                    <Typography
-                        variant={"h3"}
-                        component={"h1"}
-                        color={"white"}
-                        className={classes.text2}
-                    >
-                        I am a
-                    </Typography>
+
                     <div style={{display: "flex", alignItems: "center", justifyContent: "space-between"}}>
-                        <Typography
-                            variant={isBetweenSmXl ? "h2" : "h1"}
-                            component={"h2"}
-                            color={"white"}
-                            className={classes.text3}
-                        >
-                            <strong>
-                                <div>
-                                    Software Engineer,
-                                </div>
-                                <div>
-                                    Web Designer,
-                                </div>
-                                <div>
-                                    UI/UX Enthusiast.
-                                </div>
-                            </strong>
-                        </Typography>
+                        <div>
+                            <Typography
+                                variant={"h3"}
+                                component={"h1"}
+                                color={"white"}
+                                className={classes.text2}
+                            >
+                                I am a
+                            </Typography>
+                            <Typography
+                                variant={isBetweenSmXl ? "h2" : "h1"}
+                                component={"h2"}
+                                color={"white"}
+                                className={classes.text3}
+                            >
+                                <strong>
+                                    <div>
+                                        Software Engineer,
+                                    </div>
+                                    <div>
+                                        Web Designer,
+                                    </div>
+                                    <div>
+                                        UI/UX Enthusiast.
+                                    </div>
+                                </strong>
+                            </Typography>
+                        </div>
                         {isMdOnly && (
-                            // <div className={classes.smallIcon}>
-                                <DynamicDesignIcon size={"medium"}/>
+                            // <div>
+                            <DynamicDesignIcon size={"medium"}/>
                             // </div>
                         )}
                     </div>
@@ -166,9 +177,11 @@ export default function AppHero() {
                         >
                             Building your ideas,
                             {' '}
-                            <strong className={classes.altFont}>
-                                everywhere.
-                            </strong>
+                            <div className={classes.inlineText}>
+                                <strong className={classes.altFont}>
+                                    everywhere.
+                                </strong>
+                            </div>
                         </Typography>
                     </div>
                     <div className={classes.downIcon}>
