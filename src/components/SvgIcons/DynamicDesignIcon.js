@@ -6,10 +6,13 @@ import {createStyles, makeStyles} from "@mui/styles";
 const useStyles = makeStyles((theme) => createStyles({
     small: {
         // width: "75%",
-        width: "65%",
-        height: "auto",
-        maxWidth: "440px",
+        // width: "65%",
+        // height: "auto",
+        // maxWidth: "440px",
         // marginRight: "2rem",
+        height: "40%",
+        maxHeight: "200px",
+        width: "auto",
     },
     medium: {
         width: "40%",
