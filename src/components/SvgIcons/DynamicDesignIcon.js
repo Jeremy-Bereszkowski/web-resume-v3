@@ -10,9 +10,14 @@ const useStyles = makeStyles((theme) => createStyles({
         // height: "auto",
         // maxWidth: "440px",
         // marginRight: "2rem",
-        height: "40%",
-        maxHeight: "200px",
+        height: "35%",
         width: "auto",
+        [theme.breakpoints.only("xs")]: {
+            maxHeight: "250px",
+        },
+        [theme.breakpoints.up("sm")]: {
+            maxHeight: "350px",
+        }
     },
     medium: {
         width: "40%",
