@@ -27,7 +27,10 @@ const useStyles = makeStyles((theme) => createStyles({
     },
     text1: {
         ...theme.typography.overpass,
-        display: "inline",
+        // display: "inline",
+        whiteSpace: "nowrap",
+        overflow: "hidden",
+        textOverflow: "ellipsis",
     },
     text2: {
         ...theme.typography.overpass,
@@ -59,6 +62,9 @@ const useStyles = makeStyles((theme) => createStyles({
     text5: {
         ...theme.typography.overpass,
         width: "100%",
+        [theme.breakpoints.only("md")]: {
+            marginTop: `${theme.spacing(6)}!important`,
+        },
     },
     altFont: {
         color: theme.palette.primary.main,
@@ -96,7 +102,6 @@ export default function AppHero() {
     const isMdOnly = useMediaQuery(theme => theme.breakpoints.only('md'));
     const isLgOnly = useMediaQuery(theme => theme.breakpoints.only('lg'));
     const isXlOnly = useMediaQuery(theme => theme.breakpoints.only('xl'));
-    const isBetweenSmXl = useMediaQuery(theme => theme.breakpoints.between('sm', 'xl'));
 
     return (
         <AppContainer>
@@ -108,8 +113,7 @@ export default function AppHero() {
                 <Grid item sm={12} md={12} lg={6} sx={{width: "100%"}}>
                     <div className={classes.spacer1}>
                         <Typography
-                            variant={"h4"}
-                            component={"h1"}
+                            variant={isXsOnly ? "h5" : "h4"}
                             color={"white"}
                             className={classes.text1}
                             noWrap
@@ -136,15 +140,13 @@ export default function AppHero() {
                         <div>
                             <Typography
                                 variant={"h3"}
-                                component={"h1"}
                                 color={"white"}
                                 className={classes.text2}
                             >
                                 I am a
                             </Typography>
                             <Typography
-                                variant={isBetweenSmXl ? "h2" : "h1"}
-                                component={"h2"}
+                                variant={(isXsOnly || isMdOnly || isLgOnly) ? "h2" : "h1"}
                                 color={"white"}
                                 className={classes.text3}
                             >
@@ -162,15 +164,12 @@ export default function AppHero() {
                             </Typography>
                         </div>
                         {isMdOnly && (
-                            // <div>
                             <DynamicDesignIcon size={"medium"}/>
-                            // </div>
                         )}
                     </div>
                     <div >
                         <Typography
                             variant={isMdDown ? "h4" : "h3"}
-                            component={"h3"}
                             color={"white"}
                             align={isMdDown ? "center" : "left"}
                             className={classes.text5}
