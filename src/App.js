@@ -35,8 +35,7 @@ export default function App() {
                 main: "#2A9D8F",
             },
             background: {
-                // 'default': "#264653",
-                'default': prefersDarkMode ? "#E9C46A" : "#264653",
+                'default': prefersDarkMode ? "#264653" : "#E9C46A",
             }
         },
         typography: {
