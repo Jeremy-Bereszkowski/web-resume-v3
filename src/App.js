@@ -58,6 +58,15 @@ export default function App() {
                 fontSize: "36px"
             }
         },
+        breakpoints: {
+            values: {
+                xs: 0,
+                sm: 450,
+                md: 900,
+                lg: 1200,
+                xl: 1536,
+            },
+        },
         drawer: {
             width: 240,
         },
