@@ -18,12 +18,6 @@ import NotFoundPage from "./pages/NotFoundPage";
 
 import { URLS } from "./assets/strings/urls";
 
-const github = "/github.svg"
-const dribble = "/dribble.svg"
-const linkedIn = "/linkedin.svg"
-
-
-
 export default function App() {
     const prefersDarkMode = useMediaQuery('(prefers-color-scheme: dark)');
     const theme = React.useMemo( () => responsiveFontSizes(createTheme({
@@ -61,8 +55,8 @@ export default function App() {
         breakpoints: {
             values: {
                 xs: 0,
-                sm: 450,
-                md: 900,
+                sm: 600,
+                md: 800,
                 lg: 1200,
                 xl: 1536,
             },
