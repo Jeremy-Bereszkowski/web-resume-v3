@@ -169,7 +169,7 @@ export default function AppHero() {
                     </div>
                     <div >
                         <Typography
-                            variant={isMdDown ? "h4" : "h3"}
+                            variant={isXsOnly ? "h5" : isMdDown ? "h4" : "h3"}
                             color={"white"}
                             align={isMdDown ? "center" : "left"}
                             className={classes.text5}
