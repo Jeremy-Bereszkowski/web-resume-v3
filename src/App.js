@@ -28,8 +28,15 @@ export default function App() {
             secondary: {
                 main: "#2A9D8F",
             },
+            common: {
+                yellow: "#E9C46A",
+                blue: "#003459",
+                orange: "#E76F51",
+                turquoise: "#2A9D8F",
+            },
             background: {
-                'default': prefersDarkMode ? "#264653" : "#E9C46A",
+                'default': prefersDarkMode ? "#003459" : "#E9C46A",
+                'defaultInverse': prefersDarkMode ? "#E9C46A" : "#003459",
             }
         },
         typography: {
@@ -64,6 +71,10 @@ export default function App() {
         drawer: {
             width: 240,
         },
+        textShadows: [
+            "0px 1px 1px rgba(140, 140, 140, 0.65)",
+            "0px 3px 3px rgba(0, 0, 0, 0.35)",
+        ]
     })), [prefersDarkMode]);
 
     return (

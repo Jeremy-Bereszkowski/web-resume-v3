@@ -27,13 +27,14 @@ const useStyles = makeStyles((theme) => createStyles({
     },
     text1: {
         ...theme.typography.overpass,
-        // display: "inline",
         whiteSpace: "nowrap",
         overflow: "hidden",
         textOverflow: "ellipsis",
+        textShadow: theme.textShadows[0],
     },
     text2: {
         ...theme.typography.overpass,
+        textShadow: theme.textShadows[0],
         [theme.breakpoints.up("md")]: {
             marginTop: `${theme.spacing(6)}!important`,
         },
@@ -43,7 +44,7 @@ const useStyles = makeStyles((theme) => createStyles({
     },
     text3: {
         ...theme.typography.play,
-        textShadow: "0px 4px 4px rgba(0, 0, 0, 0.35)",
+        textShadow: theme.textShadows[1],
         height: "100%",
         [theme.breakpoints.down("md")]: {
             marginBottom: `${theme.spacing(8)}!important`,
@@ -57,17 +58,19 @@ const useStyles = makeStyles((theme) => createStyles({
     },
     text4: {
         ...theme.typography.play,
-        textShadow: "0px 4px 4px rgba(0, 0, 0, 0.35)",
+        textShadow: theme.textShadows[1],
     },
     text5: {
         ...theme.typography.overpass,
         width: "100%",
+        textShadow: theme.textShadows[0],
         [theme.breakpoints.only("md")]: {
             marginTop: `${theme.spacing(6)}!important`,
         },
     },
     altFont: {
         color: theme.palette.primary.main,
+        textShadow: "none!important",
         [theme.breakpoints.up("md")]: {
             display: "inline-block"
         },
@@ -83,9 +86,6 @@ const useStyles = makeStyles((theme) => createStyles({
             width: "100%",
             margin: theme.spacing(3, "auto"),
         },
-    },
-    highlightText: {
-        color: theme.palette.primary.main,
     },
     inlineText: {
         [theme.breakpoints.down("md")]: {
@@ -120,7 +120,7 @@ export default function AppHero() {
                         >
                             My name is
                             {' '}
-                            <strong className={classes.highlightText}>
+                            <strong className={classes.altFont}>
                                 Jeremy Bereszkowski,
                             </strong>
                             {/*{isXsOnly && <div>isXsOnly</div>}

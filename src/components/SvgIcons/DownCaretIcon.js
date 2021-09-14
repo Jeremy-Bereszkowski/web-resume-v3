@@ -3,7 +3,7 @@ import {createStyles, makeStyles} from "@mui/styles";
 
 const useStyles = makeStyles((theme) => createStyles({
     root: {
-        filter: "drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.5))",
+        filter: "drop-shadow(0px 3px 3px rgba(0, 0, 0, 0.5))",
         [theme.breakpoints.down("sm")]: {
             transform: "scale(0.7)",
         },
